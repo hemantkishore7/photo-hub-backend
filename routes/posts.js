@@ -1,6 +1,7 @@
 import express from "express";
 import {verifyToken} from "../middleware/auth.js";
 import {
+    addComment,
     getFeedPosts,
     getUserPosts,
     likePost,
@@ -14,5 +15,6 @@ router.get("/:userId/posts",verifyToken,getUserPosts)
 
 //Update 
 router.patch("/:id/like",verifyToken,likePost)
+router.put("/:id/comment",addComment)
 
 export default router;
