@@ -12,9 +12,9 @@ import { register } from "./controllers/auth.js";
 import authRoutes from "./routes/auth.js"
 import userRouter from "./routes/users.js"
 import postRouter from "./routes/posts.js"
-import User from "./models/Users.js";
-import Post from "./models/Post.js";
-import {users,posts} from "./data/data.js"
+// import User from "./models/Users.js";
+// import Post from "./models/Post.js";
+// import {users,posts} from "./data/data.js"
 
 
 // Configration
