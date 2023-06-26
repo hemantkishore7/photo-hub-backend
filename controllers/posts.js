@@ -85,13 +85,14 @@ export const addComment = async(req,res)=>{
         const {id} =req.params;
         const comment = {
             text:req.body.text,
-            postedBy:req.user.id,
+            postedBy:req.user._id,
             profilePic:req.user.picturePath
         }
-       const post = await Post.findById(id)
-       post.comments.push(comment)
-       await post.save()
-        res.status(201).json(post)
+     const post = await Post.findByIdAndUpdate(id,{
+        $push:{comments:comment}    
+     },{new:true})
+    
+        res.status(200).json(post)
     } catch (error) {
         res.status(404).json({message:error.message})
     }

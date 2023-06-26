@@ -21,13 +21,13 @@ const postSchema =new mongoose.Schema({
         type:Map,
         of:Boolean
     },
-    comments:{
-        type:Array,
+    comments:[{
+        type:String,
         postedBy:{
             type:mongoose.Types.ObjectId,
             ref:"user"
         }
-    }
+    }]
 },{timestamps:true})
 
 const Post = mongoose.model("Post",postSchema)
