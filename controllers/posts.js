@@ -28,13 +28,19 @@ export const createPost = async(req,res)=>{
 
 //Generate all post on feed
 export const getFeedPosts = async(req,res)=>{
+    let post;
     try {
-        const post = await Post.find()
-        res.status(200).json(post)
+        post = await Post.find()
+        
     } catch (error) {
         res.status(404).json({message:error.message})
     }
+    if(!post){
+        return res.status(500).json("Internel server error")
+    }
+    res.status(200).json(post)
 } 
+
 
 //Generate particular user post
 export const getUserPosts = async(req,res)=>{
