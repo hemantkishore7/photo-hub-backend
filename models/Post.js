@@ -22,8 +22,11 @@ const postSchema =new mongoose.Schema({
         of:Boolean
     },
     comments:{
-        text:String,
-        postedBy:{type:mongoose.Types.ObjectId,ref:"user"}
+        type:Array,
+        postedBy:{
+            type:mongoose.Types.ObjectId,
+            ref:"user"
+        }
     }
 },{timestamps:true})
 
