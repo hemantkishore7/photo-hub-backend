@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 //Read
-router.get("/",getFeedPosts)
+router.get("/",verifyToken,getFeedPosts)
 router.get("/:userId/posts",verifyToken,getUserPosts)
 
 //Update 
